@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<title>求数组第二大</title>
+</head>  
+<style>  
+   
+</style>  
+    
+<body>
+    <script type="text/javascript">
+        var arr = [1,5,7,6,5,3,2,9];
+        var max = arr[0];
+        var secondLargest = arr[0];
+
+        for(var i=1;i<arr.length;i++){
+            if(arr[i]>max){
+                secondLargest=max; //更新第二大
+                max=arr[i]; //更新最大
+            }
+            else if(arr[i]>secondLargest){
+                secondLargest=arr[i]; //介于两者之间，更新第二大
+            }
+        }
+        console.log("最大数："+max);
+        console.log("第二大："+secondLargest);
+    </script>
+</body>  
+</html>
