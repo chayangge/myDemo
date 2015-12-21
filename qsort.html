@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<title>快速排序</title>
+</head>  
+<style>  
+   
+</style>  
+    
+<body>
+    <script type="text/javascript">
+        function qsort(arr){
+          if(arr.length <= 1){
+            return arr;
+          }
+          var first = arr[0], rest = arr.slice(1);
+          
+          return qsort(rest.filter(function(o){
+            return o < first;
+          })).concat([first])
+          .concat(qsort(rest.filter(function(o){
+          	return o >= first;
+          })));
+        }
+        
+        var arr = [3,4,6,1,2,5];
+        console.log(qsort(arr));
+    </script>
+</body>  
+</html>
