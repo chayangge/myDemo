@@ -15,7 +15,7 @@
           }
           var first = arr[0], rest = arr.slice(1);
           
-          return qsort(rest.filter(function(o){ //递归
+          return qsort(rest.filter(function(o){  //递归
             return o < first;
           })).concat([first])
           .concat(qsort(rest.filter(function(o){
