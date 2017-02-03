@@ -1,0 +1,166 @@
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>重力小球</title>
+<script type="text/javascript" src="./js/jquery.js"></script>
+<style>
+*{
+  margin: 0;
+  padding: 0;
+}
+#worldcup{
+    position: fixed;
+    top: 10px;
+    left: 100px;
+    width: 100px;
+    height: 100px;
+    background: lightblue;
+    border-radius: 50%;
+}
+
+</style>
+</head>
+
+<body>
+<div id="worldcup"></div>
+</body>
+
+<script type="text/javascript">
+(function() {
+    var oDiv = document.getElementById('worldcup');
+
+    var disX = 0,
+        disY = 0,
+        prevX = 0,
+        prevY = 0;
+    var iSpeedX = 0,
+        iSpeedY = 0;
+    var timer = null;
+
+
+    setTimeout(function() {
+        oDiv.style.display = 'block';
+        move();
+    }, 1000)
+
+    oDiv.onmousedown = function(e) {
+        var e = e || window.event;
+        disX = e.clientX - oDiv.offsetLeft;
+        disY = e.clientY - oDiv.offsetTop;
+
+        prevX = e.clientX;
+        prevY = e.clientY;
+
+        if (oDiv.setCapture) oDiv.setCapture();
+
+        clearInterval(timer);
+
+        document.onmousemove = function(e) {
+            var e = e || window.event;
+            oDiv.style.left = e.clientX - disX + 'px';
+            oDiv.style.top = e.clientY - disY + 'px';
+
+            iSpeedX = e.clientX - prevX;
+            iSpeedY = e.clientY - prevY;
+
+            prevX = e.clientX;
+            prevY = e.clientY;
+        }
+
+        document.onmouseup = function() {
+            document.onmousemove = null;
+            document.onmouseup = null;
+
+            if (oDiv.releaseCapture) oDiv.releaseCapture();
+
+            move();
+        }
+
+        return false;
+    }
+
+    function move() {
+        clearInterval(timer);
+        timer = setInterval(function() {
+            iSpeedY += 3;
+            var T = oDiv.offsetTop + iSpeedY;
+            var L = oDiv.offsetLeft + iSpeedX;
+
+            if (T > document.documentElement.clientHeight - oDiv.offsetHeight) {
+                T = document.documentElement.clientHeight - oDiv.offsetHeight;
+                iSpeedY *= -1;
+                iSpeedY *= 0.8;
+                //iSpeedX *= 0.8;
+                //console.log(T);
+            } else if (T < 0) {
+                T = 0;
+                iSpeedY *= -1;
+                iSpeedX += 2;
+                //console.log(T);
+            }
+
+            if (L > document.documentElement.clientWidth - oDiv.offsetWidth) {
+                L = document.documentElement.clientWidth - oDiv.offsetWight;
+                iSpeedX *= -1;
+                iSpeedX *= 0.8;
+            } else if(L < 0) {
+                L = 0;
+                iSpeedX *= -1;
+            }
+
+            oDiv.style.left = L + 'px';
+            console.log(iSpeedY);
+            oDiv.style.top = T + 'px';
+        }, 30);
+    }
+})();
+
+
+
+
+
+
+
+// (function(){
+//     var oBox = document.getElementById("box");
+//     var oBall = document.getElementById("ball");
+//     var timer = null;
+//     var distance = 1;
+//     var boxHeight = oBox.clientHeight;
+//     var ballHeight = oBall.clientHeight;
+//     var L = 1;
+//     var speed = 3;
+//     function move(){
+        
+//         var timer = setInterval(function(){
+            
+//             speed += 3;
+
+//             L = L+speed;
+//             if(L>=200){
+//                 L = 200;
+//                 speed *= -1;
+//                 speed *= 0.5;
+//             }
+//             if(L <= 0){
+//                 L=0;
+//                 speed *=-1;
+//                 //speed *= 0.8;
+//             }
+//             var num = speed;
+//            // var temp = num;
+
+//             // if(Math.floor(speed) > -2){
+//             //     clearInterval(timer);
+//             // }
+//             console.log("L:"+L);
+//             console.log("speed:"+speed);
+//             oBall.style.top = L + "px";
+//         },30);
+//     }
+//    // move();
+
+// })()
+
+</script>
+</html>
