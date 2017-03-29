@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<title>数组去重</title>
+</head>  
+<style>  
+   
+</style>  
+    
+<body>
+    <script type="text/javascript">
+    var arr = [1,2,6,4,5,6,4,5,6,4,"aaa","aaa","vv","vv"]
+    Array.prototype.unique = function(){
+        if(this.length <= 1){
+            return arr;
+        }
+        var obj = {};
+        var uniqArr = [];
+        this.forEach(function(val,id){
+            if(!obj[val]){
+                obj[val] = true;
+                uniqArr.push(val);
+            }
+        });
+        return uniqArr;
+    }
+    console.log(arr.unique());
+
+
+    Array.prototype.unique2 = function(){
+        if(this.length <= 1){
+            return arr;
+        }
+        var obj = {};
+        var uniqArr = [];
+        this.forEach(function(val,id){
+            // 性能耗费在indexOf查找上
+            if(uniqArr.indexOf(val) === -1){
+                uniqArr.push(val)
+            }
+        });
+        return uniqArr;
+    }
+
+console.log(arr.unique2());
+
+
+    </script>
+</body>  
+</html>
