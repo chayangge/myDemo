@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<title>数组去重</title>
+</head>  
+<style>  
+   
+</style>  
+    
+<body>
+<p>0</p>    
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+</body>  
+<script type="text/javascript">
+var pList = document.getElementsByTagName("p");
+for(var i = 0; i < pList.length; i++){
+    // (function(i){
+    //     pList[i].onclick = function(){
+    //         console.log(i)
+    //     }
+    // })(i)
+
+    pList[i].onclick = (function(i){
+        // 每个i都存在闭包中
+        return function(){ 
+            console.log(i)
+        }
+    })(i)
+}
+
+
+var obj = (function(){
+    // a,b存在闭包中
+    var a = 1;
+    var b = 2;
+
+    return {
+        init:function(){
+            console.log("初始化闭包中有：",a,b);
+            this.add();
+        },
+        add:function(){
+            a++;
+            b++;
+            this.show();
+        },
+        show:function(){
+            console.log("显示闭包中的：",a,b)
+        },
+        "data1":a,
+        "data2":b
+    }
+})()
+
+obj.init();
+console.log(obj.data1,obj.data2);
+obj.show();
+
+
+
+
+</script>
+</html>
