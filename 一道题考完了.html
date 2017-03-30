@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<title>一道题考完了</title>
+</head>  
+<style>  
+   
+</style>  
+    
+<body>
+
+</body> 
+<script type="text/javascript">
+    function Foo() {
+        getName = function () { alert (1); };
+        return this;
+    }
+    Foo.getName = function () { alert (2);};
+    Foo.prototype.getName = function () { alert (3);};
+    var getName = function () { alert (4);};
+    function getName() { alert (5);}
+     
+    //请写出以下输出结果：
+    Foo.getName(); // 2  没啥好说的，Foo对象调用自己的属性
+    getName(); // 4  函数提升
+    Foo().getName(); // 1 Foo内getName重写全局原有的，按作用链查找到全局
+    getName(); // 1 上一步的执行修改了全局，此时依然为1
+    new Foo.getName(); // 2 new优先级低，相当于new操作alert(2)函数，new会执行函数
+    new Foo().getName(); // 3 先new Foo()，产生实例化对象，再调用实例化对象的getName，即原型上的
+    new new Foo().getName(); // 3  new上一步原型上的getName，new操作会执行一次
+
+</script> 
+</html>
