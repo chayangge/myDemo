@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<title>异步</title>
+</head>  
+<style>  
+   
+</style>  
+    
+<body>
+
+</body> 
+<script type="text/javascript">
+var start = new Date();
+setTimeout(function(){
+    var end = new Date();
+    console.log("时间差：",start-end);
+},300);
+while(new Date()-start<2000){}
+
+</script> 
+</html>
