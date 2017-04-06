@@ -25,6 +25,57 @@
         
         var arr = [3,4,6,1,2,5];
         console.log(qsort(arr));
+
+        
+
+var arr2 = [3,4,6,1,2,5];
+function qsort2(arr){
+  if(arr.length <= 2){
+    return arr;
+  }
+  var middle = Math.floor(arr.length/2);
+  var numValue = arr.splice(middle,1);//取出标记位置的值
+  var left = [];
+  var right = [];
+  console.log(middle,numValue)
+  arr.forEach(function(self){
+    if(self <= numValue){
+      left.push(self);
+    }else{
+      right.push(self);
+    }
+  });
+  console.log("left",left)
+  console.log("right",right)
+  // return left.concat(right);
+
+  // return left.concat(right);
+  return qsort2(left).concat(numValue,qsort2(right));
+}
+
+console.log(qsort(arr2));
+
+
+// function ff(fn){
+//   fn()
+// }
+
+Array.prototype.ff = function(fn){
+  var a = [];
+  for(var i = 0;i<this.length;i++){
+    if(fn(this[i])){
+      a.push(this[i]);
+    }
+  }
+  return a;
+  // fn(this);
+}
+var aa = [2,4,6,7,8,67,7,8,4]
+var n = aa.ff(function(a){
+  // console.log(a)
+  return a>5
+})
+console.log(n)
     </script>
 </body>  
 </html>
