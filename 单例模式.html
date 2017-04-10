@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<title>数组去重</title>
+</head>  
+<style>  
+   
+</style>  
+    
+<body>
+<p>0</p>    
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+</body>  
+<script type="text/javascript">
+
+var singleton = (function(){
+    var data;
+    function init(){
+        return data;
+    }
+    function setData(newdata){
+        data = newdata;
+        return init();   //  return init() 和 init()
+    }
+
+    return {
+        getData:init,
+        setData:setData
+    }
+})();
+
+console.log(singleton.getData())
+singleton.setData(123);
+console.log(singleton.getData())
+
+var two = singleton;
+console.log(two.getData())
+
+
+</script>
+</html>
