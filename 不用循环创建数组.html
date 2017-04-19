@@ -9,9 +9,32 @@
     
 <body>
     <script type="text/javascript">
-// 利用Object.keys()  对象提取keys，数组提取下标（再次说明js中数组即对象）
+// 1. 利用Object.keys()  对象提取keys，数组提取下标（再次说明js中数组即对象）
 var arr = Object.keys(new Array(11).join().split(""));
 console.log(arr)
+
+
+
+// 2. (不要好，其实forEach就是循环遍历)
+var a = Array(100).join(",").split(",")
+a.forEach(function(val,id,self){
+    self[id] = id
+})
+console.log(a)
+
+// 3. 高难度
+console.log(Array.apply(null, {length: 10}).map(Number.call, Number))
+
+// 4. 用递归
+var list = [];
+function add(arr){
+    if(arr.length <= 12){
+        list[arr.length] = arr.length;
+        add(arr)
+    }
+}
+add(list)
+console.log(list)
 
     </script>
 </body>  
