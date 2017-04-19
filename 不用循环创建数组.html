@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<title>不用循环创建数组</title>
+</head>  
+<style>  
+   
+</style>  
+    
+<body>
+    <script type="text/javascript">
+// 利用Object.keys()  对象提取keys，数组提取下标（再次说明js中数组即对象）
+var arr = Object.keys(new Array(11).join().split(""));
+console.log(arr)
+
+    </script>
+</body>  
+</html>
