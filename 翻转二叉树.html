@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<title>翻转二叉树</title>
+</head>  
+<style>  
+   
+</style>  
+    
+<body>
+
+</body>  
+<script type="text/javascript">
+var root = {
+    "left":{
+        "left":1,
+        "right":2
+    },
+    "right":{
+        "left":3,
+        "right":4
+    }
+}
+console.log(root);
+
+var invertTree = function(root) {
+    if (root == null){
+        return root;
+    }
+    var tmp = root.left;
+    root.left = root.right;
+    root.right = tmp;
+    if (root.left != null){
+        invertTree(root.left)
+        // arguments.callee(root.left);
+    }
+    if (root.right != null){
+        invertTree(root.right)
+        // arguments.callee(root.right);
+    }
+    return root;
+};
+invertTree(root)
+console.log(root)
+</script>
+</html>

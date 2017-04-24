@@ -11,39 +11,11 @@
 
 </body> 
 <script type="text/javascript">
+// 有序数组 取中值查找
 var arr = [1,2,3,4,6,7,8,9,66,77];
-// Math.random().toString(10).slice(2).split("")
-// .forEach(function(num,id,self){
-//    arr.push(num - 0);
-//     // self[id] = ;
-//     // console.log(self)
-// })
-// console.log(arr.sort())
-// console.log(arr.slice(5))
-// console.log(arr);
-
-
-// function half(val,arr){
-//     var middle = Math.floor(arr.length/2);
-//     console.log(middle,arr[middle]);
-//     // while ()
-//     if(arr[middle] < val){
-//         return half(val,arr.slice(0,middle))
-//     }else if(arr[middle] > val){
-//         return half(val,arr.slice(middle))
-//     }else if(arr[middle] == val){
-//         console.log("最后else：",arr[middle])
-//         return arr[middle];
-//     }else{
-//         console.log("muyou!!!!")
-//         return;
-//     }
-// }
-// half(3,arr)
 
 function BinarySearch(srcArray, des) {
-
-       var low = 0; 
+    var low = 0; 
 　　var high = srcArray.length-1; 
 　　while(low <= high) { 
 　　    var middle = (low + high)/2; 
@@ -59,6 +31,9 @@ function BinarySearch(srcArray, des) {
 
 }
 console.log(BinarySearch(arr,6))
+
+
+
 
 var Arr = [3,5,6,7,9,12,15];
 function binary(find,arr,low,high){
