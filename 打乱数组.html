@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<title>打乱数组</title>
+</head>  
+<style>  
+   
+</style>  
+    
+<body>
+
+</body>  
+<script type="text/javascript">
+//  再次声明：sort中传入Math.random() - 0.5的乱序方法并不是随机的
+// arr.sort(function(){
+//         return Math.random() - 0.5;
+//     });
+
+var arr = [1,2,3,4,5,6,7,8,9,10];
+
+function shuffle(arr){
+  var len = arr.length;
+  console.log(arr)
+  console.log("长度：",len)
+  for(var i = 0; i < len - 1; i++){
+    var idx = Math.floor(Math.random() * (len - i));
+    console.log("拿随机下标第",idx,"个数:",arr[idx],"与下标第",len - i - 1,"个数：",arr[len - i - 1],"交换")
+    var temp = arr[idx];
+    arr[idx] = arr[len - i - 1];
+    arr[len - i -1] = temp;
+  }
+  return arr;
+}
+console.log(shuffle(arr));
+</script>
+</html>
