@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<title>柯里化</title>
+</head>  
+<style>  
+   div{
+  width:100px;
+  background:blue;
+  transition:width 2s 3s;
+}
+
+div:hover{
+  width:300px;
+}
+</style>  
+    
+<body>
+<div>a</div>
+</body>  
+<script type="text/javascript">
+function add(arr){
+    if(arr.length == 0){
+        return;
+    }
+    var sum = 0;
+    // var arg = [].slice.call(arguments,0);
+    // console.log(arg);
+    for(var i = 0; i < arr.length; i++){
+        sum += arr[i];
+    }
+    console.log(sum)
+    return sum;
+};
+// add([1,2])
+function curriedAdd(fn){
+    var arg = [];
+    return function inner(){
+        if(arguments.length == 0){
+            return fn(arg);
+        }
+        var innerArg = [].slice.call(arguments,0);
+        arg = arg.concat(innerArg);
+        console.log(arg)
+        return inner;
+    };
+}
+var addFn = curriedAdd(add);
+console.log(addFn(1,2)(1)(1)(1)())
+// console.log(addFn(1,2)(1)(1))
+// add(1,2,3)
+</script>
+</html>

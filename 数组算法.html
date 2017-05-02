@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<title>翻转二叉树</title>
+</head>  
+<style>  
+   
+</style>  
+    
+<body>
+<div id="box">box</div>
+</body>  
+<script type="text/javascript">
+var obj = {
+    on: function(type, handler) {
+        if(!this[type]) {
+            this[type] = [];
+        }
+        this[type].push(handler);
+    },
+    trigger: function(type) {
+        if(this[type]) {
+            this[type].forEach(function(fn){
+                fn();
+            });
+        }
+    }
+};
+
+var test = {
+    on:function(event,fn){
+        if(!this[event]){
+            this[event] = [];
+        }
+        this[event].push(fn);
+    },
+    trigger:function(event){
+        if(this[event]){
+            this[event].forEach(function(item){
+                item()
+            });
+        }else{
+            throw "未绑定此事件"
+        }
+    }
+}
+var box = document.querySelector("#box");
+console.log(box)
+// box.on();
+
+test.on("click",function(){console.log("click-----")})
+test.on("click",function(){console.log("click---222--")})
+test.on("click",function(){console.log("click---333--")})
+
+
+// console.log(test)
+test.trigger("click")
+
+
+function Custom(){
+
+}
+Custom.prototype = {
+    on:function(event,fn){
+        if(!this[event]){
+            this[event] = [];
+        }
+        this[event].push(fn);
+    },
+    trigger:function(event){
+        if(this[event]){
+            this[event].forEach(function(item){
+                item();
+            });
+        }else{
+            throw "未绑定事件："+event
+        }
+    },
+    remove:function(event){
+        if(this[event]){
+            this[event] = [];
+        }
+    }
+}
+
+var c = new Custom;
+c.on("dianji",function(){console.log("dianji__111")})
+c.on("dianji",function(){console.log("dianji__222")})
+c.on("dianji",function(){console.log("dianji__333")})
+c.on("shuangji",function(){console.log("shuangji__111")})
+c.on("shuangji",function(){console.log("shuangji__222")})
+
+
+// c.trigger("dianji")
+// console.log("=======")
+// c.remove("shuangji");
+// console.log(c)
+// c.trigger("shuangji");
+
+function stringClassify(arr){
+    var arrLength = arr.length;
+    var obj = {};
+    var i = 0;
+    var num,item,name,firstItem,strLength;
+    for(;i<arrLength;i++){
+        item = arr[i];
+        strLength = item.length;
+        num = 0;
+        for(j = 0; j<strLength;j++){
+            num+=item.charCodeAt(j);
+        }
+        if(!firstItem){
+            firstItem = item;
+            obj[num] = item;
+        }else if(){
+            
+        }
+    }
+}
+
+var stringClassify = function( arr ){
+
+　　var arrLength = arr.length,
+　　obj = {},
+　　i = 0,
+　　num, item, name, firstItem, strLength;
+　　for( ; i < arrLength; i++ ){
+    　　item = arr[i];
+    　　strLength = item.length;
+    　　num = 0;
+    　　// 将单个的字符转换成 Unicode 编码
+    　　// 对编码进行取和计算
+    　　for( j = 0; j < strLength; j++ ){
+    　　      num += item.charCodeAt( j );
+    　　}
+    　　if( !firstItem ){
+    　　  firstItem = item;
+    　　  obj[ num ].push( item );
+    　　}
+    　　// 通过检测待添加的字符串的第一个字符是否
+    　　// 在另一个字符串中出现以避免将下面的情况
+    　　// [ 'ad', 'da', 'bc' ]
+    　　else if( ~firstItem.indexOf(item.charAt(0)) ){
+    　　  obj[ num ].push( item );
+    　　}
+　　}
+
+　　for( name in obj ){
+　　  console.log( obj[name] );
+　　}
+};
+var arr = ["abcd","cabd","loks","adcb","iknw","dacb","cdab","cahe"];
+
+stringClassify(arr)
+
+
+
+</script>
+</html>

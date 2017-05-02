@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<title>翻转二叉树</title>
+</head>  
+<style>  
+   
+</style>  
+    
+<body>
+    <div id="odiv">
+        <ul id="oul">
+            <li>
+                <p id="box">aaa</p>
+            </li>
+        </ul>
+    </div>
+</body>  
+<script type="text/javascript">
+// var box = document.getElementById("box");
+// var oul = document.getElementById("oul");
+// var odiv = document.getElementById("odiv");
+
+// odiv.addEventListener("click",function(event){
+//     // console.log(event)
+//     if(event.bubbles === true){
+//         console.log("true")
+//     }else{
+//         console.log("false")
+//     }
+//     console.log("div")
+// },false);
+
+// oul.addEventListener("click",function(event){
+//     // console.log(event)
+//     console.log("ul")
+// },false);
+
+function bu(e){
+    console.log(e.bubbles,"bu")
+}
+function mao(e){
+    console.log(e.bubbles,"mao")
+}
+box.addEventListener("click",mao,false);
+box.addEventListener("click",bu,true);
+
+
+// var str = "aa";
+// var longStr = "qweraatyuiaaplmnaapp";
+// var a = longStr.replace(/(aa)/g,"$1**");
+// console.log(longStr);
+// console.log(a);
+
+
+
+
+// var indexArr = [];
+// longStr.replace(/(aa)/g,function(reg,item,index){
+//     indexArr.push(index);
+//     return item;
+// });
+// console.log("出现位置在：",indexArr.join(),"最后一次出现在：",indexArr.pop());
+
+
+
+
+
+
+var arr = ["abcd","cabd","loks","adcb","iknw","dacb","cdab","cahe"];
+var arrMap = {};
+var resultArr = [];
+var newArr = [];
+
+function sortStr(str){
+    return str.split("").sort().join("");
+}
+
+for(var i = 0,len = arr.length;i < len; i++){
+    arrMap[arr[i]] = sortStr(arr[i]);
+    // newArr.push(sortStr(arr[i]));
+}
+
+// for(var i = 0,len = arr.length;i < len; i++){
+//     for(item in arrMap){
+//         if(arr[i] === arrMap[item]){
+//             console.log(item)
+//             // resultArr.push(item)
+//         }
+//     }
+// }
+
+// Object.keys(arrMap).forEach(function(key){
+//     var temp = arrMap[key];
+//     Object.keys(arrMap).forEach(function(item){
+//         if(arrMap[key] === temp){
+//             console.log(key)
+//         }
+//     });
+// });
+
+for(item in arrMap){
+    var temp = arrMap[item];
+    for(var j = 0;j < len; j++){
+        if(j == i){
+            continue;
+        }
+        if(temp === newArr[j]){
+            resultArr.push(arr[i]);
+            // if(!arrMap[arr[i]]){
+                
+            //     arrMap[arr[i]] = true;
+            // }
+        }
+    }
+}
+
+for(var i = 0,len = arr.length;i < len; i++){
+    var temp = arrMap[arr[i]];
+    for(var j = 0;j < len; j++){
+        if(j == i){
+            continue;
+        }
+        if(temp === newArr[j]){
+            resultArr.push(arr[i]);
+            // if(!arrMap[arr[i]]){
+                
+            //     arrMap[arr[i]] = true;
+            // }
+        }
+    }
+}
+console.log(arrMap)
+console.log(resultArr)
+// for(var i = 0,len = arr.length;i < len; i++){
+//     var temp = arr[i];
+//     if(arr[i] === ){
+
+//     }
+// }
+
+// var newMap = {};
+// Object.keys(arrMap).forEach(function(item){
+//     console.log(item)
+//     if(!newMap[arrMap[item]])
+//     // if(sortStr(item) === arrMap[item]){
+//     //     resultArr.push(item);
+//     // }
+// });
+
+
+
+
+
+
+
+
+
+
+var test = ["abc","adi","abc","oku","abc"];
+// for(var i = 0; u < )
+
+
+
+var obj = {
+    on: function(type, handler) {
+        if(!this[type]) {
+            this[type] = [];
+        }
+        this[type].push(handler);
+    },
+    trigger: function(type) {
+        if(this[type]) {
+            this[type].forEach(function(fn){
+                fn();
+            });
+        }
+    }
+};
+
+// http://www.xiaojunxie.com/2015/09/23/2016%E7%BE%8E%E5%9B%A2%E6%A0%A1%E6%8B%9B%E5%89%8D%E7%AB%AF%E9%9D%A2%E7%BB%8F/
+</script>
+</html>
+
+
+
+
+
+<!-- <script src="http://code.jquery.com/jquery.min.js"></script>
+<div>1
+    <div>2
+        <div>3
+            <div>4
+                <div>5</div>
+            </div>
+        </div>
+    </div>
+</div>
+<section id="log"></section>
+
+div {
+    border: 1px solid red;
+    padding: 5px;
+    min-height: 10px;
+}
+
+var divs = document.getElementsByTagName('div');
+
+function capture() {
+    log('capture: ' + this.firstChild.nodeValue.trim())
+}
+
+function bubble() {
+    log('bubble: ' + this.firstChild.nodeValue.trim())
+}
+
+for (var i = 0; i < divs.length; i++) {
+    divs[i].addEventListener('click', capture, true);
+    divs[i].addEventListener('click', bubble, false);
+}
+
+var $log = $('#log');
+
+function log(msg) {
+    $log.append('<p>' + msg + '</p>');
+} -->
+

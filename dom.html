@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<title>柯里化</title>
+</head>  
+<style>  
+   div{
+  width:100px;
+  background:blue;
+  transition:width 2s 3s;
+}
+
+div:hover{
+  width:300px;
+}
+</style>  
+    
+<body>
+    <div id="first">a</div><ul id="mid">
+        <li>11</li>
+        <li>22</li>
+        <li>33</li>
+    </ul><p id="last">ppp</p>
+</body>
+<script type="text/javascript">
+var first = document.getElementById("first");
+var mid = document.getElementById("mid");
+var last = document.getElementById("last");
+var ele = document.createElement("h1");
+ele.appendChild(document.createTextNode("hhhhhh"))
+console.log(ele);
+var body = document.body;
+// body.insertBefore(ele,last);
+body.replaceChild(ele,first);
+// body.insertBefore(ele,last);
+// 
+
+console.log(mid.nextSibling);
+console.log(mid.previousSibling)
+console.log(mid.parentNode === first.parentNode)
+
+// body.removeChild(first)
+// body.removeChild(last)
+
+// (function getUrl(){
+//     var dom = document.createElement("p");
+//     dom.id = "box";
+//     dom.className="test";
+//     dom.attr="aaa";
+//     dom.appendChild(document.createTextNode("pppppppp"))
+//     document.documentElement.appendChild(dom);
+// })()
+// var box = document.getElementById("box");
+// var first = document.getElementById("first");
+// console.log(first.nextSibling.nodeValue)
+// console.log(box.nodeName.toLowerCase());
+// var text = document.createTextNode("tttttt");
+// console.log(box.nodeValue)
+// console.log(box.attributes[0].nodeType);
+// box.appendChild(document.createTextNode("-----"))
+// box.removeAttribute("class");
+// var body = document.documentElement.childNodes;
+// console.log(body)
+// console.log(document.documentElement.lastChild)
+// console.log(document.documentElement.firstChild);
+
+
+// box.attributes = {"aa":1}
+// console.log(box.attributes);
+
+</script>
+</html>

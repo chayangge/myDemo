@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<title>判断数组</title>
+</head>  
+<style>  
+   
+</style>  
+    
+<body>
+
+</body>  
+<script type="text/javascript">
+var arr = [1,2];
+var a = 1
+function isArray(arr){
+    return Object.prototype.toString.call(arr) === "[object Array]";
+}
+console.log(isArray(a));
+console.log(Object.prototype.toString.call(function(){}))
+</script>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<title>闭包setTimeout</title>
+</head>  
+<style>  
+   
+</style>  
+    
+<body>
+    <div id="odiv">
+        <ul id="oul">
+            <li>
+                <p id="box">aaa</p>
+            </li>
+        </ul>
+    </div>
+</body>  
+<script type="text/javascript">
+
+// for(var i = 1;i<=10;i++){
+//     setTimeout(function(a){
+//       console.log(a);
+//     },1000*i,i);
+//     // (function(num){
+//     //     // console.log(num);
+//     //     return function(){
+//     //         setTimeout(function(){
+//     //             console.log(num)
+//     //         },1000*i)
+//     //     }()
+//     // })(i)
+// }
+
+function Sup(name,age){
+    this.color = ["red","blue"];
+    this.name = name;
+    this.faage = age;
+    // console.log("new zhixingle ")
+}
+// var t = new Sub("ttt");
+
+Sub.prototype = {
+    constructor:Sub,
+    sayName:function(){
+        console.log(this.name)
+    }
+}
+
+Sup.prototype.sayName = function(){
+    console.log(this.name);
+}
+
+function Sub(name,age){
+    Sup.call(this,name,age)
+}
+// Sub.prototype = new Sup("fa",11);
+
+// var t = new Sub("son",10);
+// console.log(t)
+
+// t.sayName()
+
+// function Person(name,age){
+//     // this.name = name;
+//     // this.age = age;
+//     var o = new Object();
+//     o.name = name;
+//     o.age = age;
+//     return o;
+// }
+// var p = new Person("tom",11);
+// console.log(p)
+
+
+
+
+
+// function Son(name){
+//     // this.name = name;
+//     Sub.call(this,"ssss");
+// }
+
+// Son.prototype = new Sub("bbb");
+
+// var s = new Son;
+// console.log(s)
+
+
+// 寄生组合
+
+function createObj(o){
+    console.log(o)
+    var F = function(){};
+    F.prototype = o;
+    return new F();
+}
+
+// createObj({a:11})
+
+function inherit(Sub,Sup){
+    // console.log(Sup.prototype)
+    // console.log(createObj(Sup.prototype))
+    // Sub.prototype = createObj(Sup.prototype);
+    // console.log(obj)
+    Sub.prototype = Sup.prototype;
+
+}
+
+// function Sup(name){
+//     this.name = name;
+// }
+// Sub.prototype.sayName = function(){
+//     console.log(this.name)
+// }
+// function Sub(age){
+//     this.age = age;
+//     Sup.call(this,"tom");
+// }
+// inherit(Sub,Sup)
+// var a = new Sub("oo");
+// console.log(a)
+// a.sayName()
+
+
+// var xmlHttp = new X
+
+var reg = /(aa)/g;
+var str = "aanaamaa";
+// console.log(str.lastIndexOf("aa"))
+// console.log(str.exec(reg))
+// console.log(str.exec(reg))
+console.log(reg.exec(str));
+// console.log(reg.lastIndex)
+// console.log(reg.test(str));
+// console.log(reg.lastIndex)
+// console.log(reg.test(str));
+console.dir(reg.lastIndex)
+
+
+
+</script>
+</html>

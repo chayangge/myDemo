@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<title>柯里化</title>
+</head>  
+<style>  
+li {
+  display: inline-block;
+  margin: 0 30px 30px 0;
+}
+</style>  
+    
+<body>
+
+</body>
+<script type="text/javascript">
+var xmlHttp = new XMLHttpRequest() || new ActiveObject("Mocrosoft.XMLHTTP");
+
+xmlHttp.open("POST","http://app.diantudaikuan.com/api/dk/index3",true); // 是否异步
+xmlHttp.setRequestHeader("Contend-type","text/html; charset=utf-8");
+xmlHttp.send("city=北京");
+xmlHttp.onreadystatechange = function(){
+  console.log(xmlHttp.readyState);
+  if(xmlHttp.readyState == 4 && xmlHttp.status == 200){
+    // console.log("hahah")
+    console.log(xmlHttp.responseText);
+  }
+}
+
+</script>
+</html>

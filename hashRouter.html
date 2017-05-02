@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<title>柯里化</title>
+</head>  
+<style>  
+li {
+  display: inline-block;
+  margin: 0 30px 30px 0;
+}
+</style>  
+    
+<body>
+<ul> 
+        <li><a href="#/" class="button button-glow button-border button-rounded button-primary">turn white</a></li> 
+        <li><a href="#/orange" class="button button-glow button-rounded button-highlight">turn orange</a></li> 
+        <li><a href="#/purple" class="button button-glow button-rounded button-royal">turn purple</a></li> 
+    </ul>
+
+    <hr>
+    <ul> 
+        <li><a href="#/" class="button button-glow button-border button-rounded button-primary">turn white</a></li> 
+        <li><a href="#/about" class="button button-glow button-rounded button-highlight">turn orange</a></li> 
+        <li><a href="#/list" class="button button-glow button-rounded button-royal">turn purple</a></li> 
+    </ul>  
+</body>
+<script type="text/javascript">
+// function Router() {
+//         this.routes = {};
+//         this.currentUrl = '';
+//     }
+//     Router.prototype.route = function(path, callback) {
+//         this.routes[path] = callback || function(){};
+//     };
+//     Router.prototype.refresh = function() {
+//         this.currentUrl = location.hash.slice(1) || '/';
+//         this.routes[this.currentUrl]();
+//     };
+//     Router.prototype.init = function() {
+//         window.addEventListener('load', this.refresh.bind(this), false);
+//         window.addEventListener('hashchange', this.refresh.bind(this), false);
+//     }
+//     window.Router = new Router();
+//     window.Router.init();
+//     var content = document.querySelector('body');
+//     // change Page anything
+//     function changeBgColor(color) {
+//         content.style.backgroundColor = color;
+//     }
+//     Router.route('/', function() {
+//         changeBgColor('white');
+//     });
+//     Router.route('/orange', function() {
+//         changeBgColor('orange');
+//     });
+//     Router.route('/purple', function() {
+//         changeBgColor('purple');
+//     });
+
+function Router(page){
+  this.page = page;
+  this.map = {};
+}
+Router.prototype = {
+  constructor:Router,
+  init(){
+    this.listen();
+  },
+  change(hash){
+    document.write("跳转到-->：",hash)
+  },
+  listen(){
+    var _this = this;
+    this.page.addEventListener("hashchange",function(){
+      console.log(page.location.hash);
+      console.log(location.hash.slice(2));
+      console.log(location.hash)
+      _this.change(page.location.hash);
+    })
+  },
+  route(url,fn){
+
+  }
+};
+var page = window;
+var router = new Router(page);
+router.init()
+router.route("/about",function(){
+  change("about");
+})
+router.route("/list",function(){
+  change("list");
+})
+
+
+</script>
+</html>

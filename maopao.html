@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<title>翻转二叉树</title>
+</head>  
+<style>  
+   
+</style>  
+    
+<body>
+
+</body>  
+<script type="text/javascript">
+var arr = [2,5,9,1,4,6,8];
+var max=min= arr[0];
+var mid;
+// console.log(max,min)
+for(var i = 0; i < arr.length; i++){
+    if(arr[i] < max && arr[i] > min){
+        min = max;
+        max = arr[i];
+    }
+    // if(max === min){
+    //     mid = arr[i];
+    //     // return;
+    // }
+}
+console.log(max)
+
+// for(var i = 0; i < arr.length; i++){
+//     console.log(i,arr[i])
+//     for(var j = 0; j <= i; j++){
+//         console.log("j",j,arr[j])
+//         if(arr[i] < arr[j]){
+//             var temp = arr[i];
+//             arr[i] = arr[j];
+//             arr[j] = temp;
+//         }
+//     }
+// }
+</script>
+</html>
