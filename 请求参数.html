@@ -2,6 +2,7 @@
 <html lang="zh">
 <head>
 <title>柯里化</title>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 </head>  
 <style>  
    div{
@@ -17,10 +18,28 @@ div:hover{
     
 <body>
 <div>a</div>
+<select data-testValue="testObj" name="test" onchange="change(this)" id="Test">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+</select>
 </body>  
 <script type="text/javascript">
-(function getUrl(){
-    console.log(location.search)
-})()
+
+function change(obj){
+    console.log(obj);
+    var test = document.getElementById("test");
+    console.log(test)
+}
+
+
+// (function getUrl(){
+//     console.log(location.search)
+// })()
+
+// window.location.search.match(/(([^?&=]+)(=([^?&=]*))*)/g)
+
+// (   ([^?&=]+)  (=([^?&=]*))*  )
+
 </script>
 </html>
