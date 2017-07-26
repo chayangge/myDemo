@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<title>自定义标签</title>
+</head>  
+<style>  
+   box{
+   	display: block;
+   	background: #ccc;
+   	color: red;
+   	font-size: 20px;
+   }
+</style>  
+    
+<body>
+<box>this is a box!</box>
+</body>  
+<script type="text/javascript">
+var box = document.getElementsByTagName("box")[0];
+console.log(box.innerHTML);
+</script>
+</html>
